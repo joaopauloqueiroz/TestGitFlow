@@ -1,4 +1,4 @@
-# RabbitMQ With Nodejs
+# Simple implementation RabbitMQ With Nodejs
 
 ## Dependences
 
