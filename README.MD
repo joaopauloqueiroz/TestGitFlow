@@ -20,5 +20,10 @@ docker run -d --hostname my-rabbit --name some-rabbit rabbitm
 ````
 
 ## Start
+````docker
 yarn start
+````
+
+````docker
 yarn receive
+````
