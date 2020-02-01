@@ -1,21 +1,17 @@
 const amqp = require('amqplib/callback_api')
 
-const sender = (msg, user) => {
+const sender = (msg, queue) => {
   amqp.connect('amqp://localhost', (err, connection) => {
-  if(err) {
-    console.log(err)
-  }
+  if(err) throw err
 
   connection.createChannel((err, channel) => {
-    const queue = user; 
     channel.assertQueue(queue, {
       durable: false
     })
-
+    
     channel.sendToQueue(queue, Buffer.from(msg))
-    console.log(`[x] message sender ${msg}`)
-  })
-
+      console.log(`[x] Mensagem enviada para ${queue}`)
+    })
   })
 }
 
